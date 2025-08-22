@@ -1,6 +1,6 @@
-package com.leo.cardapio.food.dtos;
+package com.leo.cardapio.model.food.dtos;
 
-import com.leo.cardapio.food.Food;
+import com.leo.cardapio.model.food.Food;
 
 public record FoodResponseDTO(Long id, String title, String image, Double price) {
     public FoodResponseDTO(Food food){
