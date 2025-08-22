@@ -1,20 +1,26 @@
 package com.leo.cardapio.controller;
 
-import com.leo.cardapio.food.Food;
-import com.leo.cardapio.food.dtos.UpdateFoodDTO;
-import com.leo.cardapio.repositories.FoodRepository;
-import com.leo.cardapio.food.dtos.FoodRequestDTO;
-import com.leo.cardapio.food.dtos.FoodResponseDTO;
-import com.leo.cardapio.services.FoodService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.leo.cardapio.model.food.dtos.FoodRequestDTO;
+import com.leo.cardapio.model.food.dtos.FoodResponseDTO;
+import com.leo.cardapio.model.food.dtos.UpdateFoodDTO;
+import com.leo.cardapio.services.FoodService;
+
 @RestController
-@RequestMapping("api/foods")
+@RequestMapping("/api/foods")
 public class FoodController {
 
     private final FoodService service;

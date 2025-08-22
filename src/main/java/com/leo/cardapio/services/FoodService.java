@@ -1,11 +1,11 @@
 package com.leo.cardapio.services;
 
-import com.leo.cardapio.food.Food;
-import com.leo.cardapio.food.dtos.UpdateFoodDTO;
-import com.leo.cardapio.food.exceptions.FoodNotFoundException;
+import com.leo.cardapio.model.food.Food;
+import com.leo.cardapio.model.food.dtos.UpdateFoodDTO;
+import com.leo.cardapio.model.food.exceptions.FoodNotFoundException;
 import com.leo.cardapio.repositories.FoodRepository;
-import com.leo.cardapio.food.dtos.FoodRequestDTO;
-import com.leo.cardapio.food.dtos.FoodResponseDTO;
+import com.leo.cardapio.model.food.dtos.FoodRequestDTO;
+import com.leo.cardapio.model.food.dtos.FoodResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
