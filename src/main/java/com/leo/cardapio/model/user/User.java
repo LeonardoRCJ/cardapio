@@ -28,4 +28,6 @@ public class User {
     private String phone;
     private LocalDate birthdate;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private UserType role;
 }
