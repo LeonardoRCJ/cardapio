@@ -23,22 +23,9 @@ public class User {
     @Column(unique = true, updatable = false)
     private String cpf;
     @Column(unique = true)
+    private String email;
+    @Column(unique = true)
     private String phone;
     private LocalDate birthdate;
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
-    }
+    private String password;
 }

@@ -5,9 +5,9 @@ import com.leo.cardapio.model.user.User;
 
 import java.time.LocalDate;
 
-public record UserRequestDTO(String fullname, String cpf, String phone, LocalDate birthdate) {
+public record UserRequestDTO(String fullname, String cpf, String phone, String password, LocalDate birthdate, String email) {
 
     public User toEntity() {
-        return new User(null, fullname, cpf, phone, birthdate );
+        return new User(null, fullname, cpf, email, phone, birthdate, password);
     }
 }
