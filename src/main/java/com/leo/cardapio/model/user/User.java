@@ -1,5 +1,6 @@
 package com.leo.cardapio.model.user;
 
+import com.leo.cardapio.model.user.dtos.UserRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Entity(name = "users")
 @Table(name = "users")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
