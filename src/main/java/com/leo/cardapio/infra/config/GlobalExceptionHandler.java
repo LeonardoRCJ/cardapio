@@ -1,4 +1,4 @@
-package com.leo.cardapio.config;
+package com.leo.cardapio.infra.config;
 
 import com.leo.cardapio.model.food.exceptions.FoodNotFoundException;
 import org.springframework.http.HttpStatus;
