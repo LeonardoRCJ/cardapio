@@ -1,4 +1,4 @@
-package com.leo.cardapio.services;
+package com.leo.cardapio.infra.security;
 
 import com.leo.cardapio.repositories.UserRepository;
 import org.springframework.security.core.userdetails.User;
@@ -8,10 +8,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class CustomUserDetails implements UserDetailsService {
     private final UserRepository repository;
 
-    public CustomUserDetailsService(UserRepository repository) {
+    public CustomUserDetails(UserRepository repository) {
         this.repository = repository;
     }
 
