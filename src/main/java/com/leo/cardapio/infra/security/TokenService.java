@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.leo.cardapio.model.token.TokenData;
 import com.leo.cardapio.model.user.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+
 
 @Service
 public class TokenService {
@@ -24,6 +26,7 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("cardapio")
                     .withSubject(user.getEmail())
+                    .withClaim("role", user.getRole().name())
                     .withExpiresAt(this.generateExpirationDate())
                     .sign(algorithm);
         }catch (JWTCreationException ex) {
@@ -31,15 +34,15 @@ public class TokenService {
         }
     }
 
-    public String validateToken(String token) {
+    public TokenData validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
 
-            return JWT.require(algorithm)
+            var decoded = JWT.require(algorithm)
                     .withIssuer("cardapio")
                     .build()
-                    .verify(token)
-                    .getSubject();
+                    .verify(token);
+            return new TokenData(decoded.getSubject(), decoded.getClaim("role").asString());
         } catch (JWTVerificationException exception) {
             return null;
         }
