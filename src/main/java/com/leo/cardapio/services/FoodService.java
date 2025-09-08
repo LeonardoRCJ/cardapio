@@ -54,7 +54,7 @@ public class FoodService {
         if (!update.title().isEmpty()){
             foodToBeUpdated.setTitle(update.title());
         }
-        if (!update.price().isEmpty()){
+        if (!update.price().isNaN()){
             foodToBeUpdated.setPrice(Double.valueOf(update.price()));
         }
         if (!update.image().isEmpty()){
