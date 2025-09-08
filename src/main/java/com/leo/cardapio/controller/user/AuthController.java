@@ -1,6 +1,7 @@
-package com.leo.cardapio.controller;
+package com.leo.cardapio.controller.user;
 
 import com.leo.cardapio.model.user.dtos.AuthRequest;
+import com.leo.cardapio.model.user.dtos.AuthResponse;
 import com.leo.cardapio.model.user.dtos.UserRequestDTO;
 import com.leo.cardapio.services.AuthService;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +23,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthRequest data) {
-        String token = authService.login(data);
-        return ResponseEntity.ok().body(token);
+    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest data) {
+        AuthResponse response = new AuthResponse(authService.login(data));
+        return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/register")
