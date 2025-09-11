@@ -114,3 +114,9 @@ Esta é uma API para um cardápio digital, desenvolvida com Java e Spring Boot. 
 
 * **`DELETE /admin/foods/{id}`**
     * Deleta um prato pelo seu ID. Requer autenticação de administrador.
+
+## Melhorias a serem implementadas
+
+* Usuário poderá fazer um pedido com uma lista de itens.
+* Conectar com uma API de pagamentos.
+* Frontend para interação.
