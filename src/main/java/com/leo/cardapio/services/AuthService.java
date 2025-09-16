@@ -3,6 +3,7 @@ package com.leo.cardapio.services;
 import com.leo.cardapio.infra.security.TokenService;
 import com.leo.cardapio.model.user.User;
 import com.leo.cardapio.model.user.dtos.AuthRequest;
+import com.leo.cardapio.model.user.dtos.AuthResponse;
 import com.leo.cardapio.model.user.dtos.UserRequestDTO;
 import com.leo.cardapio.model.user.exceptions.CpfIsNotValidException;
 import com.leo.cardapio.model.user.exceptions.UserAlreadyExistsWithCpfException;
@@ -34,13 +35,12 @@ public class AuthService {
         this.cpfValidator = cpfValidator;
     }
 
-    public String login(AuthRequest data){
+    public AuthResponse login(AuthRequest data){
         var authenticationToken = new UsernamePasswordAuthenticationToken(data.email(), data.password());
         var authentication = authenticationManager.authenticate(authenticationToken);
         var email = ((UserDetails) authentication.getPrincipal()).getUsername();
         var user = repository.findUserByEmail(email).orElseThrow(() -> new UserNotFoundException("Usuário não foi encontrado com o email: " + email));
-
-        return tokenService.generateToken(user);
+        return new AuthResponse(tokenService.generateToken(user), user.getFullname());
     }
 
     public UUID register(UserRequestDTO data) {
@@ -59,6 +59,7 @@ public class AuthService {
         if (repository.existsByPhone(data.phone())) {
             throw new UserAlreadyExistsWithCpfException("Usuário com o telefone: " + data.phone() + " já existe no sistema");
         }
+
         User user = new User();
         user.setCpf(data.cpf());
         user.setEmail(data.email());
