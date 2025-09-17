@@ -1,4 +1,6 @@
 package com.leo.cardapio.model.food.dtos;
 
-public record UpdateFoodDTO(String title, String image, String description, Double price) {
+import com.leo.cardapio.model.food.FoodType;
+
+public record UpdateFoodDTO(String title, String image, String description, Double price, FoodType type) {
 }

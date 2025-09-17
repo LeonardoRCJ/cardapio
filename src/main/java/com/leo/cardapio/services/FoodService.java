@@ -60,6 +60,13 @@ public class FoodService {
         if (!update.image().isEmpty()){
             foodToBeUpdated.setImage(update.image());
         }
+        if (!update.description().isEmpty()) {
+            foodToBeUpdated.setDescription(update.description());
+        }
+
+        if (update.type() != null) {
+            foodToBeUpdated.setType(update.type());
+        }
 
         repository.save(foodToBeUpdated);
     }
