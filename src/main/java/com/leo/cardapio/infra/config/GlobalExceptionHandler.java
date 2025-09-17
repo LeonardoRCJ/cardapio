@@ -2,6 +2,7 @@ package com.leo.cardapio.infra.config;
 
 import com.leo.cardapio.model.food.exceptions.FoodNotFoundException;
 import com.leo.cardapio.model.order.exceptions.PaymentException;
+import com.leo.cardapio.model.order.exceptions.OrderNotFoundException;
 import com.leo.cardapio.model.user.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,5 +57,11 @@ public class GlobalExceptionHandler {
     public  ResponseEntity<ExceptionDTO> handlePaymentException(PaymentException ex) {
         ExceptionDTO response = new ExceptionDTO(ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<ExceptionDTO> handleOrderNotFoundException(OrderNotFoundException ex){
+        ExceptionDTO response = new ExceptionDTO(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 }

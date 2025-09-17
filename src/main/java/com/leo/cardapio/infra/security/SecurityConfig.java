@@ -39,6 +39,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/foods/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/orders/my-orders").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/orders").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers(HttpMethod.POST, "/orders/payments/webhook").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
@@ -50,17 +53,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // A origem do seu frontend
         configuration.setAllowedOrigins(List.of("http://localhost:5173"));
-        // Os métodos HTTP permitidos
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        // Os cabeçalhos permitidos
         configuration.setAllowedHeaders(List.of("*"));
-        // Se permite credenciais (importante para o futuro)
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        // Aplica esta configuração a todos os endpoints
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
