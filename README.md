@@ -1,8 +1,8 @@
-# CardapioGO - Aplicação Full-Stack de Pedidos
+# Pastelaria Campo Grande - Aplicação Full-Stack de Pedidos
 
 ## Visão Geral
 
-O CardapioGO é uma aplicação web full-stack para um cardápio digital, que permite aos clientes visualizar pratos, fazer pedidos e pagar online. A plataforma inclui uma área de gestão completa para administradores e uma interface de cliente moderna e reativa.
+A Pastelaria Campo Grande é uma aplicação web full-stack para um cardápio digital, que permite aos clientes visualizar pratos, fazer pedidos e pagar online. A plataforma inclui uma área de gestão completa para administradores e uma interface de cliente moderna e reativa.
 
 Este projeto foi desenvolvido com um backend robusto em **Java com Spring Boot** e um frontend interativo em **React com TypeScript e Vite**.
 
