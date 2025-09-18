@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/api")
 public class OrderController {
 
     private final OrderService orderService;
@@ -23,7 +23,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PostMapping
+    @PostMapping("/orders")
     public ResponseEntity<OrderResponseDTO> createOrder(
             @RequestBody OrderRequestDTO orderRequest,
             Authentication authentication
@@ -42,7 +42,7 @@ public class OrderController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/my-orders")
+    @GetMapping("/orders/my-orders")
     public ResponseEntity<List<OrderHistoryDTO>> getMyOrders(Authentication authentication) {
         String userEmail = authentication.getName();
         List<OrderHistoryDTO> orderHistory = orderService.getOrderHistoryForUser(userEmail);

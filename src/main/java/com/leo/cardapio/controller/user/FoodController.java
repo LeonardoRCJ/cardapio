@@ -13,7 +13,7 @@ import com.leo.cardapio.model.food.dtos.FoodResponseDTO;
 import com.leo.cardapio.services.FoodService;
 
 @RestController
-@RequestMapping("/foods")
+@RequestMapping("/api/foods")
 public class FoodController {
 
     private final FoodService service;
