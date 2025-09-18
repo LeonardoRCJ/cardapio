@@ -12,5 +12,5 @@ import java.util.UUID;
 public interface OrderRepository extends JpaRepository<Order, UUID> {
     Optional<Order> findByPaymentId(Long paymentId);
 
-    List<Order> findByUserIdOrderByDateDesc(UUID userId);
+    List<Order> findByUserIdOrderByOrderDateDesc(UUID userId);
 }
