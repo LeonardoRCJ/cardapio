@@ -31,7 +31,7 @@ Este projeto foi desenvolvido com um backend robusto em **Java com Spring Boot**
 * **PostgreSQL** como base de dados.
 * **Lombok** para redução de boilerplate.
 * **Java JWT** para geração e validação de tokens de autenticação.
-* **SDK do Mercado Pago** для интеграции платежей.
+* **SDK do Mercado Pago** para integração de pagamentos.
 * **Maven** para gestão de dependências.
 
 ### Frontend
@@ -40,8 +40,8 @@ Este projeto foi desenvolvido com um backend robusto em **Java com Spring Boot**
 * **Vite** como ferramenta de build e servidor de desenvolvimento.
 * **React Router DOM** para gestão de rotas.
 * **Axios** para chamadas à API.
-* **React Hot Toast** для уведомлений.
-* **SDK React do Mercado Pago** для Прозрачного Checkout.
+* **React Hot Toast** para notificações.
+* **SDK React do Mercado Pago** para o Checkout Transparente.
 * **jwt-decode** para extrair informações do token no cliente.
 
 ## Como Executar o Projeto
